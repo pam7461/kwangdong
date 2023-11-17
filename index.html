@@ -18,11 +18,261 @@
   <meta name="twitter:image" content="./images/og.jpg">
   <meta name="twitter:title" content="광동제약">
   <meta name="twitter:description" content="광동제약은 새로운 가치를 창출하여 고객의 건강한 삶에 기여한다">
-  <link rel="stylesheet" href="./css/reset.css">
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/reset.css">  
   <link rel="stylesheet" href="./css/swiper-bundle.min.css">
-  <title>광동제약</title>
+  <link rel="stylesheet" href="./css/fonts.css">
+  <title>::: 광동제약 :::</title>
+  <!-- 사용자정의 스타일 -->
+  <style> 
+    /* 기본스타일    */
+    :root{
+      font-family:'roboto','noto sans kr', sans-serif;
+      font-weight:400;
+      font-size:16px;
+      color:#000;
+    }
+    .container{
+      max-width:1280px;
+      margin:0 auto;
+      padding:0 20px;
+    }
+    .sec02,.sec03,.sec04,.sec05{
+      margin:100px 0;
+    }
+    #wrap{
+      overflow:hidden;
+    }    
+    .header{
+      padding:20px 0;
+      position:fixed;
+      top:0;
+      right:0;
+      left:0;      
+    }
+    .header .container{
+      display:grid;
+      grid-template-columns:72px 24px 24px;
+      justify-content:space-between;
+      align-items:start;
+    }
+
+    .main-nav{
+      display:none;
+    }
+    .sec-media .container{
+      max-width:100%;
+      padding:0;
+    }
+    .sec-busi .container{
+      padding:0;
+    }
+    .aside{      
+      position:fixed;      
+      right:0;
+      bottom:0;
+      left:0;
+    }
+    .sec-prod .container{
+      max-width:100%;
+      padding:0;
+    }
+    .sec-notice-event .container{
+      padding:0;
+    }
+    .footer .container{
+      max-width:1720px;
+    }
+
+    /* -------------   768px 이상   ------------- */
+    @media (min-width:768px){
+      .aside{
+        display:none;
+      }
+      .sec-notice-event .container{
+        padding:0 20px;
+      }
+    }
+
+
+
+
+
+    /* -------------   1280px 이상   ------------- */
+    @media (min-width:1280px){
+      .sec-dev-con .container{
+        padding:0 20px;
+      }
+      .sec-busi .container{
+        padding:0 20px;
+      }
+      .aside{
+        display:block;
+        top:50%;
+        bottom:auto;
+        left:auto;
+        transform:translateY(-50%);
+      }
+      .footer .container{
+        padding:0;
+      }
+    }
+  </style>
 </head>
 <body>
-  
+  <section id="wrap">
+    <header class="header">
+      <div class="container">
+        <h1 class="logo">
+          <a href="./index.html">
+            <div class="img-box">
+              <img src="./images/logo.png" alt="광동제약 로고">
+            </div>
+            <span>Kwangdong</span>
+            <span>광동제약</span>
+          </a>
+        </h1>
+        <div class="btn-nav">
+          <a href="#">
+            <img src="./images/ico-btn-nav.svg" alt="네비게이션 호출 버튼">
+          </a>
+        </div>
+        <div class="btn-lang">
+          <a href="#">
+            <img src="./images/ico-lang.svg" alt="언어선택 버튼">
+          </a>
+        </div>
+        <nav class="main-nav">
+          <h2 class="nav-logo">
+            <a href="./index.html">
+              <div class="img-box">
+                <img src="./images/logo-white.png" alt="광동제약 로고2">
+              </div>
+              <span>Kwangdong</span>
+              <span>광동제약</span>
+            </a>
+          </h2>
+          <div class="btn-nav-close">
+            닫기
+          </div>
+          <ul class="g-nav">
+            <li>
+              회사소개
+              <ul class="sub-nav">
+                <li><a href="#">CEO소개</a></li>
+                <li><a href="#">창업자 소개</a></li>
+                <li><a href="#">연혁</a></li>
+                <li><a href="#">비전2030</a></li>
+                <li><a href="#">패밀리사이트</a></li>
+                <li><a href="#">오시는길</a></li>
+              </ul>
+            </li>
+            <li>
+              연구개발
+              <ul class="sub-nav">
+                <li><a href="#">연구개발 비젼</a></li>
+                <li><a href="#">연구소 소개</a></li>
+                <li><a href="#">연구원 소개</a></li>
+                <li><a href="#">연구분야</a></li>
+                <li><a href="#">연구성과</a></li>                
+              </ul>
+            </li>
+            <li>
+              투자정보
+              <ul class="sub-nav">
+                <li><a href="#">공시</a></li>
+                <li><a href="#">재무재표</a></li>
+                <li><a href="#">공고</a></li>                
+              </ul>
+            </li>
+            <li>
+              사회공헌
+              <ul class="sub-nav">
+                <li><a href="#">매칭그랜트</a></li>
+                <li><a href="#">가산문화재단</a></li>
+                <li><a href="#">어린이 건강지원</a></li>
+                <li><a href="#">다양한 사회공헌</a></li>
+              </ul>
+            </li>
+            <li>
+              제품소개
+              <ul class="sub-nav">
+                <li><a href="#">일반의약품</a></li>
+                <li><a href="#">전문의약품</a></li>
+                <li><a href="#">의약외품</a></li>
+                <li><a href="#">일반유통식품</a></li>
+                <li><a href="#">건강기능식품</a></li>
+                <li><a href="#">기타</a></li>
+              </ul>
+            </li>
+            <li>
+              회원관리
+              <ul class="sub-nav">
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">회원정보</a></li>
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">QnA</a></li>
+                <li><a href="#">공지사항</a></li>
+              </ul>
+            </li>
+            <li class="q-nav">
+              <a href="#">히트상품 바로가기</a>
+            </li>
+          </ul>          
+        </nav>
+      </div>      
+    </header>
+    <section class="sec sec01 sec-media">
+      <div class="container">
+        <div class="media-box">
+          <video src="./media/med-vita.mp4"></video>          
+        </div>
+      </div>
+    </section>
+    <section class="sec sec02 sec-busi">
+      <div class="container">
+        사업분야
+      </div>
+    </section>
+    <section class="sec sec03 sec-dev-con">
+      <div class="container">
+        연구개발 / 사회공헌
+      </div>      
+    </section>
+    <aside class="aside aside01">
+      <div class="container">
+        퀵아이콘
+      </div>      
+    </aside>
+    <section class="sec sec04 sec-prod">
+      <div class="container">
+        제품광고
+      </div>      
+    </section>
+    <section class="sec sec05 sec-notice-event">
+      <div class="container">
+        공지사항 이벤트
+      </div>      
+    </section>
+    <footer class="footer">
+      <div class="container">
+        footer
+      </div>      
+    </footer>
+  </section>
+
+
+
+  <!-- 라이브러리 -->
+  <script src="./js/jquery.js"></script>
+  <!-- 플러그인 -->
+  <script src="./js/swiper-bundle.min.js"></script>
+  <!-- 사용자정의 스크립트 -->
+  <script>
+
+  </script>
 </body>
 </html>
