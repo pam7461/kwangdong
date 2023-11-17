@@ -77,7 +77,7 @@
       grid-area:2/2/3/3;
     }
     .main-nav{
-      /* display:none; */
+      display:none;
       position:fixed;
       top:0;
       right:0;
@@ -90,6 +90,7 @@
       color:#fff;
     }
     .main-nav .container{
+      position:relative;
       display:grid;
       grid-template-columns:repeat(4,1fr);
       column-gap:20px;
@@ -133,14 +134,39 @@
       width:100%;
       margin-bottom:36px;
     }
-    .g-nav>li:hover{
+    .g-nav>li:hover>span{
       color:#000;
     }
+    
     .g-nav>li:nth-child(6){
       margin-bottom:0;
     }
-    .q-nav{display:none;}
-    .sub-nav{display:none;}
+    .sub-nav{
+      display:none;
+      font-size:0.75em;
+      text-align:left;
+    }
+    .sub-nav li:hover{
+      color:#000;
+    }
+    .g-nav .q-nav{
+      position:absolute;
+      top:600px;
+      left:50%;
+      transform:translateX(-50%);
+      width:295px;
+      height:63px;
+      background:#fff;
+      color:#e8340d;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    } 
+    .g-nav .q-nav:hover{
+      border:2px solid #fff;
+      background:#e8340d;
+      color:#fff;
+    }
     .sec-media{
       position:relative;
       z-index:10;
@@ -206,6 +232,12 @@
       .g-nav>li{
         width:33.3333%;
       }
+      .g-nav .q-nav{
+        left:auto;
+        transform:translateX(0);
+        right:20px;
+        top:300px;
+      }
       .aside{
         display:none;
       }
@@ -225,6 +257,9 @@
       }
       .g-nav>li{
         width:25%;
+      }
+      .g-nav .q-nav{
+        text-align:center;
       }
       .sec-dev-con .container{
         padding:0 20px;
@@ -259,7 +294,7 @@
           </a>
         </h1>
         <div class="btn-nav">
-          <a href="#">
+          <a href="#" id="nav-open">
             <img src="./images/ico-btn-nav.svg" alt="네비게이션 호출 버튼">
           </a>
         </div>
@@ -268,7 +303,7 @@
             <img src="./images/ico-lang.svg" alt="언어선택 버튼">
           </a>
         </div>
-        <nav class="main-nav">
+        <nav class="main-nav" id="main-nav">
           <div class="container">
             <h2 class="nav-logo">
               <a href="./index.html">
@@ -280,11 +315,11 @@
               </a>
             </h2>
             <div class="btn-nav-close clearfix">
-              <div class="btn-close">닫기</div>
+              <div class="btn-close" id="nav-close">닫기</div>
             </div>
             <ul class="g-nav">
               <li>
-                회사소개
+                <span>회사소개</span>
                 <ul class="sub-nav">
                   <li><a href="#">CEO소개</a></li>
                   <li><a href="#">창업자 소개</a></li>
@@ -295,7 +330,7 @@
                 </ul>
               </li>
               <li>
-                연구개발
+                <span>연구개발</span>
                 <ul class="sub-nav">
                   <li><a href="#">연구개발 비젼</a></li>
                   <li><a href="#">연구소 소개</a></li>
@@ -305,7 +340,7 @@
                 </ul>
               </li>
               <li>
-                투자정보
+                <span>투자정보</span>                
                 <ul class="sub-nav">
                   <li><a href="#">공시</a></li>
                   <li><a href="#">재무재표</a></li>
@@ -313,7 +348,7 @@
                 </ul>
               </li>
               <li>
-                사회공헌
+                <span>사회공헌</span>                
                 <ul class="sub-nav">
                   <li><a href="#">매칭그랜트</a></li>
                   <li><a href="#">가산문화재단</a></li>
@@ -322,7 +357,7 @@
                 </ul>
               </li>
               <li>
-                제품소개
+                <span>제품소개</span>                
                 <ul class="sub-nav">
                   <li><a href="#">일반의약품</a></li>
                   <li><a href="#">전문의약품</a></li>
@@ -333,7 +368,7 @@
                 </ul>
               </li>
               <li>
-                회원관리
+                <span>회원관리</span>                
                 <ul class="sub-nav">
                   <li><a href="#">로그인</a></li>
                   <li><a href="#">회원정보</a></li>
@@ -398,6 +433,14 @@
   <script src="./js/swiper-bundle.min.js"></script>
   <!-- 사용자정의 스크립트 -->
   <script>
+    $('#nav-open').click(function(e){
+      $('#main-nav').slideDown(300);
+      e.defaultPrevented();
+    })
+    $('#nav-close').click(function(e){
+      $('#main-nav').slideUp(300);
+      e.defaultPrevented();
+    })    
 
   </script>
 </body>
