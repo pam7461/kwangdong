@@ -59,7 +59,7 @@
       justify-content:space-between;
       align-items:start;
     }
-    .logo a{
+    .logo a,.nav-logo a{
       display:grid;
       grid-template-columns:22px 50px;
       grid-template-rows:11px;
@@ -69,10 +69,10 @@
       color:#fff;
       text-align:right;
     }
-    .logo span:first-of-type{      
+    .logo span:first-of-type,.nav-logo span:first-of-type{      
       font-size:8.89px;
     }
-    .logo span:last-of-type{      
+    .logo span:last-of-type,.nav-logo span:last-of-type{      
       font-size:6.42px;      
       grid-area:2/2/3/3;
     }
@@ -93,7 +93,54 @@
       display:grid;
       grid-template-columns:repeat(4,1fr);
       column-gap:20px;
+      row-gap:100px;
     }
+    .nav-logo{
+      width:72px;
+    }
+    .btn-nav-close{
+      grid-column:4/5;
+    }
+    .btn-close{
+      width:18px;
+      height:18px;
+      text-indent:-99999px;
+      cursor:pointer; 
+      float:right;     
+      position:relative;
+    }
+    .btn-close::before,.btn-close::after{
+      content:'';
+      display:block;
+      width:22px;
+      height:3px;
+      background:#fff;
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%) rotate(45deg);
+    }
+    .btn-close::after{
+      transform:translate(-50%,-50%) rotate(-45deg);
+    }
+    .g-nav{
+      grid-column:2/4;
+      text-align:center;
+      display:flex;
+      flex-flow:row wrap;
+    }
+    .g-nav>li{
+      width:100%;
+      margin-bottom:36px;
+    }
+    .g-nav>li:hover{
+      color:#000;
+    }
+    .g-nav>li:nth-child(6){
+      margin-bottom:0;
+    }
+    .q-nav{display:none;}
+    .sub-nav{display:none;}
     .sec-media{
       position:relative;
       z-index:10;
@@ -127,15 +174,37 @@
       .header .container{
         grid-template-columns:144px 48px 48px;
       }
-      .logo a{
+      .logo a,.nav-logo a{
         grid-template-columns:44px 100px;
         grid-template-rows:22px;
       }
-      .logo span:first-of-type{      
+      .logo span:first-of-type,.nav-logo span:first-of-type{      
         font-size:calc(8.89px * 2);
       }
-      .logo span:last-of-type{      
+      .logo span:last-of-type,.nav-logo span:last-of-type{      
         font-size:calc(6.42px * 2); 
+      }
+      .main-nav .container{
+        grid-template-columns:repeat(3,1fr);
+        column-gap:0;
+      }
+      .btn-nav-close{
+        grid-column:3/4;
+      }      
+      .btn-close{
+        width:36px;
+        height:36px;
+      }
+      .btn-close::before,.btn-close::after{
+        width:44px;
+        height:6px;
+      }
+      .g-nav{
+        grid-column:1/4;
+        text-align:center;
+      }
+      .g-nav>li{
+        width:33.3333%;
       }
       .aside{
         display:none;
@@ -151,6 +220,12 @@
 
     /* -------------   1280px 이상   ------------- */
     @media (min-width:1280px){
+      .g-nav{
+        text-align:left;
+      }
+      .g-nav>li{
+        width:25%;
+      }
       .sec-dev-con .container{
         padding:0 20px;
       }
@@ -204,8 +279,8 @@
                 <span>광동제약</span>
               </a>
             </h2>
-            <div class="btn-nav-close">
-              닫기
+            <div class="btn-nav-close clearfix">
+              <div class="btn-close">닫기</div>
             </div>
             <ul class="g-nav">
               <li>
