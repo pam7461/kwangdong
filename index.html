@@ -58,6 +58,23 @@
       justify-content:space-between;
       align-items:start;
     }
+    .logo a{
+      display:grid;
+      grid-template-columns:22px 50px;
+      grid-template-rows:11px;
+      justify-content:space-between;
+      align-content:center;
+      font-weight:700;
+      color:#fff;
+      text-align:right;
+    }
+    .logo span:first-of-type{      
+      font-size:8.89px;
+    }
+    .logo span:last-of-type{      
+      font-size:6.42px;      
+      grid-area:2/2/3/3;
+    }
 
     .main-nav{
       display:none;
@@ -88,6 +105,9 @@
 
     /* -------------   768px 이상   ------------- */
     @media (min-width:768px){
+      .header .container{
+        grid-template-columns:144px 48px 48px;
+      }
       .aside{
         display:none;
       }
