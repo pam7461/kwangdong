@@ -405,7 +405,64 @@
       padding:0;
       max-width:1280px;
       margin:0 auto;
+      display:grid;
+      gap:20px;
+      align-items:start;
     }
+    .sec-notice-event .sec-tit{
+      display:none;
+    }
+    .sec-notice-event .art{
+      padding:64px 20px 20px;
+      background:#f1f1f1;
+      display:grid;
+      grid-template-columns:auto auto;
+      row-gap:40px;
+      justify-content:space-between;      
+    }
+    
+
+    .sec-notice-event .art-tit{
+      font-weight:700;
+      font-size:24px;
+    }
+    .sec-notice-event button{
+      border:none;   
+      background:transparent;   
+      font-size:14px;
+      text-align:right;
+      text-decoration:underline;
+    }
+    .sec-notice-event ul{
+      grid-column:1/-1;
+      display:grid;
+      grid-template-columns:100%;
+      row-gap:50px;
+    }
+    .sec-notice-event li{
+      border-bottom:2px solid #000;
+      padding-bottom:30px;
+    }
+    .sec-notice-event .list-tit{
+      margin-bottom:16px;
+      font-weight:700;
+      font-size:24px;
+    }
+    .sec-notice-event .list-para{
+      margin-bottom:12px;
+      font-size:16px;
+      
+    }
+    .sec-notice-event .list-para a{
+      display:block;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .sec-notice-event .list-date{
+      font-size:12px;
+    }
+    
     .footer{
       margin-bottom:98px;
     }
@@ -539,6 +596,9 @@
       .swiper-button-prev,
       .swiper-button-next{
         display:block;
+      }
+      .sec-notice-event .container{
+        grid-template-columns:1fr 1fr;
       }
       .footer .container{
         padding:0;
@@ -818,19 +878,37 @@
           <button>View More</button>
           <ul>
             <li>
-              <h4 class="list-tit"><a href="#"></a></h4>
-              <p class="list-pata"><a href="#"></a></p>
-              <p class="list-date"><a href="#"></a></p>
+              <h4 class="list-tit"><a href="#">[허가변경] 토피라메이트 단일제</a></h4>
+              <p class="list-para"><a href="#">식품의약품안전처 ‘ 허가총괄담당관-6221 (2023.10.11)'에 따른 허가변경지시를 반영한 새로운 약관내용</a></p>
+              <p class="list-date"><a href="#">2023-11-20</a></p>
             </li>
             <li>
-              <h4 class="list-tit"><a href="#"></a></h4>
-              <p class="list-pata"><a href="#"></a></p>
-              <p class="list-date"><a href="#"></a></p>
+              <h4 class="list-tit"><a href="#">[허가변경] 록소프로펜나트륨 단일제</a></h4>
+              <p class="list-para"><a href="#">식품의약품안전처 ‘허가총괄담당관-6166 (2023.10.6)'에 따른 허가변경지시를 반영한 새로운 약관내용</a></p>
+              <p class="list-date"><a href="#">2023-11-19</a></p>
             </li>
             <li>
-              <h4 class="list-tit"><a href="#"></a></h4>
-              <p class="list-pata"><a href="#"></a></p>
-              <p class="list-date"><a href="#"></a></p>
+              <h4 class="list-tit"><a href="#"> [허가변경명령] 다파글로진 단일제</a></h4>
+              <p class="list-para"><a href="#">식품의약품안전처 ‘의약품안전평가과-6799호(2022.11.01)’에 따른 허가변경지시를 반영한 새로운 약관내용</a></p>
+              <p class="list-date"><a href="#">2023-11-16</a></p>
+            </li>
+          </ul>
+        </article>
+        <article class="art art02 art-event">
+          <h3 class="art-tit">이벤트</h3>
+          <button>View More</button>
+          <ul>
+            <li>
+              <h4 class="list-tit"><a href="#">비타500 zero 출시 이벤트</a></h4>
+              <div class="img-box"><a href="#"><img src="./images/img-even01.jpg" alt="비타500 zero 출시 이벤트"></a></div>
+            </li>
+            <li>
+              <h4 class="list-tit"><a href="#">연말 효도 이벤트</a></h4>
+              <div class="img-box"><a href="#"><img src="./images/img-even02.jpg" alt="쌍화탕 이벤트"></a></div>
+            </li>
+            <li>
+              <h4 class="list-tit"><a href="#">수험생 이벤트</a></h4>
+              <div class="img-box"><a href="#"><img src="./images/img-even03.jpg" alt="경옥고 이벤트"></a></div>
             </li>
           </ul>
         </article>
