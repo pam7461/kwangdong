@@ -259,10 +259,47 @@
       grid-template-columns:repeat(4, 1fr);
       gap:20px;
     }
+    .sec-dev-con .sec-tit{
+      margin-bottom:30px;
+      font-weight:700;
+      font-size:24px;
+      text-align:center;
+    }
     .sec-dev-con .sec-tit,
     .sec-dev-con .art{
       grid-column:1/-1;
     }
+    .sec-dev-con .art{
+      height:200px;
+      position:relative;
+      background-repeat:no-repeat;
+      background-position:center;
+      background-size:cover;      
+    }
+    .sec-dev-con .art:hover{
+      border:5px solid #e8340d;
+    }
+    .sec-dev-con .art01{
+      background-image:url('/images/img-dev01.jpg');            
+    }
+    .sec-dev-con .art02{
+      background-image:url('/images/img-dev02.jpg');            
+    }
+    .sec-dev-con .art03{
+      background-image:url('/images/img-con01.jpg');            
+    }
+    .sec-dev-con .art04{
+      background-image:url('/images/img-con02.jpg');            
+    }
+    .sec-dev-con .art-tit{
+      position:absolute;
+      left:20px;
+      bottom:33px;
+      font-weight:700;
+      font-size:24px;
+      color:#fff;
+    }
+    
 
     
 
@@ -339,6 +376,21 @@
       .sec-busi .art{
         height:50vw;
       }
+      .sec-dev-con .container{
+        grid-template-columns:repeat(8, 1fr);
+      }  
+      .sec-dev-con .sec-tit{
+        font-size:48px;
+      }    
+      .sec-dev-con .art01,
+      .sec-dev-con .art03{
+        grid-column-end:5;
+      }
+      .sec-dev-con .art02,
+      .sec-dev-con .art04{
+        grid-column-start:5;
+      }
+
       .aside{
         display:none;
       }
