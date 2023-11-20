@@ -358,8 +358,49 @@
     .sec-prod .slider{
       max-width:880px;
       margin:0 auto;
+      position:relative;
     }
-    
+    .swiper-button-prev,
+    .swiper-button-next{
+      display:none;
+    }
+    .swiper-button-prev{
+      left:-200px;
+    }
+    .swiper-button-next{
+      right:-200px;
+    }
+    .swiper-pagination{
+      display:grid;
+      grid-template-columns:repeat(4,12px);
+      grid-template-rows:12px;
+      gap:12px;
+      justify-content:center;
+      top:auto !important;
+      bottom:0 !important;
+    }
+    .swiper-pagination span{
+      width:auto;
+      height:auto;
+      margin:0 !important;
+      border:1px solid black;
+      background:transparent;
+    }
+    .swiper-pagination-bullet-active{
+      border-color:#e8340d !important;
+      background:#e8340d !important;
+    }
+    .swiper-button-prev,
+    .swiper-button-next{
+      width:73px;
+    }
+    .swiper-button-prev{
+      transform:rotate(180deg);
+    }
+    .swiper-button-prev::after,
+    .swiper-button-next::after{
+      display:none;
+    }
     .sec-notice-event .container{
       padding:0;
     }
@@ -492,6 +533,10 @@
       }
       .aside .container{
         grid-template-columns:auto;
+      }
+      .swiper-button-prev,
+      .swiper-button-next{
+        display:block;
       }
       .footer .container{
         padding:0;
@@ -751,11 +796,14 @@
               </div>
             </div>
             <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>            
+          </div>
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev">
+            <img src="./images/ico-arrow.svg" alt="이전">
+          </div>
+          <div class="swiper-button-next">
+            <img src="./images/ico-arrow.svg" alt="다음">
           </div>
         </div>
       </div>      
@@ -808,7 +856,9 @@
           slidesPerView: 1,
         }
       },
-
+      autoplay: {
+        delay: 3000,
+      },
       // If we need pagination
       pagination: {
         el: '.swiper-pagination',
