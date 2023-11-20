@@ -21,8 +21,10 @@
   <!-- favicon -->
   <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
   <!-- CSS -->
-  <link rel="stylesheet" href="./css/reset.css">  
+  <link rel="stylesheet" href="./css/reset.css"> 
+  <!-- swiperjs  -->
   <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+  <!-- font face -->
   <link rel="stylesheet" href="./css/fonts.css">
   <title>::: 광동제약 :::</title>
   <!-- 사용자정의 스타일 -->
@@ -304,6 +306,7 @@
       right:0;
       bottom:0;
       left:0;
+      z-index:100;
       padding:20px 0;
       background:#000;
       color:#fff;
@@ -312,6 +315,7 @@
       display:grid;
       grid-template-columns:repeat(3, auto);
       justify-content:space-around;
+      row-gap:40px;
     }
     .aside .sec-tit{
       display:none;
@@ -336,11 +340,26 @@
       width:32px;
       height:32px;
       fill:#fff;
+    }        
+    .sec-prod .sec-tit{
+      margin-bottom:10px;
+      font-weight:700;
+      font-size:24px;
     }
-    .sec-prod .container{
-      max-width:100%;
-      padding:0;
+    .sec-prod .sec-para{
+      margin-bottom:10px;
+      font-size:16px;
     }
+    .sec-prod button{
+      border:none;
+      border-bottom:2px solid black;
+      background:transparent;
+    }
+    .sec-prod .slider{
+      max-width:880px;
+      margin:0 auto;
+    }
+    
     .sec-notice-event .container{
       padding:0;
     }
@@ -421,9 +440,15 @@
       .sec-dev-con .art04{
         grid-column-start:5;
       }
-
       .aside{
         display:none;
+      }
+      .sec-prod .sec-tit{
+        margin-bottom:20px;        
+        font-size:48px;
+      }
+      .sec-prod .sec-para{
+        font-size:24px;
       }
       .sec-notice-event .container{
         padding:0 20px;
@@ -464,6 +489,9 @@
         bottom:auto;
         left:auto;
         transform:translateY(-50%);
+      }
+      .aside .container{
+        grid-template-columns:auto;
       }
       .footer .container{
         padding:0;
@@ -700,7 +728,36 @@
     </aside>
     <section class="sec sec04 sec-prod">
       <div class="container">
-        제품광고
+        <h2 class="sec-tit">Product</h2>
+        <p class="sec-para">광동제약의 다양한 제품을 만나보세요.</p>
+        <button>View More</button>
+        <div class="slider">
+          <!-- Slider main container -->
+          <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide slide01">
+                <img src="./images/img-slide01.jpg" alt="광동경옥고">
+              </div>
+              <div class="swiper-slide slide02">
+                <img src="./images/img-slide02.jpg" alt="비타500">
+              </div>
+              <div class="swiper-slide slide03">
+                <img src="./images/img-slide03.jpg" alt="솔청수">
+              </div>
+              <div class="swiper-slide slide04">
+                <img src="./images/img-slide04.jpg" alt="쌍화탕">
+              </div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
       </div>      
     </section>
     <section class="sec sec05 sec-notice-event">
@@ -719,7 +776,7 @@
 
   <!-- 라이브러리 -->
   <script src="./js/jquery.js"></script>
-  <!-- 플러그인 -->
+  <!-- swiperjs -->
   <script src="./js/swiper-bundle.min.js"></script>
   <!-- 사용자정의 스크립트 -->
   <script>
@@ -730,7 +787,39 @@
     $('#nav-close').click(function(e){
       $('#main-nav').slideUp(300);
       e.defaultPrevented();
-    })    
+    })   
+    
+    
+    // swiperjs
+    const swiper = new Swiper('.swiper', {
+      // Optional parameters
+      loop: true,
+      slidesPerView:1.4,
+      spaceBetween:40,
+      breakpoints: {        
+        360: {
+          slidesPerView: 1.4,
+          spaceBetween: 40,
+        },
+        768:{
+          spaceBetween:120,
+        },
+        1280: {
+          slidesPerView: 1,
+        }
+      },
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },      
+    });
 
   </script>
 </body>
