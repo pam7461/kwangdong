@@ -220,15 +220,6 @@
       margin-left:20px;
       cursor:pointer;
     }
-    .play,.sound{
-      display:grid;
-    }
-    .play span,.sound span{
-      grid-area:1/1/-1/-1 ;
-    }
-    .play span:last-child,.sound span:last-child{
-      display:none;
-    }
     .sec-busi .container{
       padding:0;
       display:grid;
@@ -906,8 +897,8 @@
           </div>
         </div>
         <div class="video-control">
-          <div class="play"><span id="video-pause">멈춤</span><span id="video-play">재생</span></div>
-          <div class="sound"><span id="sound-play">소리켜기</span><span id="sound-pause">소리끄기</span></div>
+          <div class="video-play-stop">멈춤</div>
+          <div class="audio-play-stop">켜기</div>
           <div class="btn-video btn-video01" id="btn-vita">비타500</div>
           <div class="btn-video btn-video02" id="btn-corn">옥수수수염차</div>
           <div class="btn-video btn-video03" id="btn-samda">삼다수</div>
@@ -1181,22 +1172,37 @@
     //============ 함수 ============
     // 비디오를 뒤로 보내는 함수
     function videoBack(){
-      $('.media-box').removeClass('active');
+      $('media-box').removeClass('active');
     }
     // 비디오 앞으로 가져오기 함수
-    function videoFront(element){
-      element.addClass('active');
+    function videoFront(el){
+      el.addClass('active');
     }
+   
     // 비디오 멈춤 함수
-    function videoStop(){
+    function videoStop(){      
       $('video')[0].pause();
       $('video')[1].pause();
       $('video')[2].pause();
     }
+   
     // 비디오 재생 함수
     function videoPlay(){
       $('.active video')[0].play();
     }
+    
+    // 오디오 재생 함수
+    function audioPlay(){
+      $('.active video').prop('muted',false);
+    }
+
+    // 오디오 멈춤 함수
+    function audioStop(){
+      $('video').prop('muted',true);
+    }
+
+
+
 
 
     // 네비게이션 클로즈 이벤트
@@ -1227,51 +1233,8 @@
       }
     })
     
-    // 미디어 선택 이벤트
-    $('#btn-vita').click(function(){
-      videoBack();
-      videoFront($('#vita'));
-      videoStop();      
-      videoPlay();
-    })
-
-    $('#btn-corn').click(function(){
-      videoBack();
-      videoFront($('#corn'));
-      videoStop();
-      videoPlay();
-    })
-
-    $('#btn-samda').click(function(){
-      videoBack();
-      videoFront($('#samda'));
-      videoStop();
-      videoPlay();      
-    })
     
-    // 재생 멈춤 이벤트
-    // 멈춤이벤트
-    $('#video-pause').click(function(){
-      videoStop();
-      // $('.active>video')[0].pause();
-      $(this).hide();
-      $('#video-play').show();
-    })
 
-    // 재생이벤트
-    $('#video-play').click(function(){
-      videoPlay();
-      // $('.active>video')[0].play();
-      $(this).hide();
-      $('#video-pause').show();
-    })
-
-
-    // 소리 멈춤 재생 이벤트
-    $('#sound-play').click(function(){
-      $('.active video').prop('muted',false);
-    })
-    
 
     // swiperjs
     const swiper = new Swiper('.swiper', {
