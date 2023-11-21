@@ -201,6 +201,9 @@
     }
     .sec-media .media-box:first-child{
       position:relative;
+      /* z-index:200; */
+    }
+    .sec-media .media-box.active{
       z-index:200;
     }
     .sec-media .video-control{
@@ -892,8 +895,8 @@
     <section class="sec sec01 sec-media">
       <div class="container">
         <div class="video-box">
-          <div class="media-box" id="vata">
-            <video src="./media/med-vita.mp4" autoplay muted></video>          
+          <div class="media-box active" id="vita">
+            <video src="./media/med-vita.mp4" muted autoplay></video>          
           </div>
           <div class="media-box" id="corn">
             <video src="./media/med-corn.mp4" muted></video>          
@@ -903,8 +906,8 @@
           </div>
         </div>
         <div class="video-control">
-          <div class="play"><span>멈춤</span><span>재생</span></div>
-          <div class="sound"><span>소리켜기</span><span>소리끄기</span></div>
+          <div class="play"><span id="video-pause">멈춤</span><span id="video-play">재생</span></div>
+          <div class="sound"><span id="sound-play">소리켜기</span><span id="sound-pause">소리끄기</span></div>
           <div class="btn-video btn-video01" id="btn-vita">비타500</div>
           <div class="btn-video btn-video02" id="btn-corn">옥수수수염차</div>
           <div class="btn-video btn-video03" id="btn-samda">삼다수</div>
@@ -1175,12 +1178,26 @@
 
   <!-- 사용자정의 스크립트 -->
   <script>
-    // 함수
+    //============ 함수 ============
+    // 비디오를 뒤로 보내는 함수
     function videoBack(){
-      $('.media-box').css({
-        zIndex:'100',
-      })
+      $('.media-box').removeClass('active');
     }
+    // 비디오 앞으로 가져오기 함수
+    function videoFront(element){
+      element.addClass('active');
+    }
+    // 비디오 멈춤 함수
+    function videoStop(){
+      $('video')[0].pause();
+      $('video')[1].pause();
+      $('video')[2].pause();
+    }
+    // 비디오 재생 함수
+    function videoPlay(){
+      $('.active video')[0].play();
+    }
+
 
     // 네비게이션 클로즈 이벤트
     $('#nav-close').click(function(e){
@@ -1213,27 +1230,48 @@
     // 미디어 선택 이벤트
     $('#btn-vita').click(function(){
       videoBack();
-      $('#vata').css({
-        zIndex:'200',
-      })
+      videoFront($('#vita'));
+      videoStop();      
+      videoPlay();
     })
 
     $('#btn-corn').click(function(){
       videoBack();
-      $('#corn').css({
-        zIndex:'200',
-      })
+      videoFront($('#corn'));
+      videoStop();
+      videoPlay();
     })
 
     $('#btn-samda').click(function(){
       videoBack();
-      $('#samda').css({
-        zIndex:'200',
-      })
+      videoFront($('#samda'));
+      videoStop();
+      videoPlay();      
     })
     
     // 재생 멈춤 이벤트
+    // 멈춤이벤트
+    $('#video-pause').click(function(){
+      videoStop();
+      // $('.active>video')[0].pause();
+      $(this).hide();
+      $('#video-play').show();
+    })
 
+    // 재생이벤트
+    $('#video-play').click(function(){
+      videoPlay();
+      // $('.active>video')[0].play();
+      $(this).hide();
+      $('#video-pause').show();
+    })
+
+
+    // 소리 멈춤 재생 이벤트
+    $('#sound-play').click(function(){
+      $('.active video').prop('muted',false);
+    })
+    
 
     // swiperjs
     const swiper = new Swiper('.swiper', {
