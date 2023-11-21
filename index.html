@@ -897,8 +897,8 @@
           </div>
         </div>
         <div class="video-control">
-          <div class="video-play-stop">멈춤</div>
-          <div class="audio-play-stop">켜기</div>
+          <div class="video-play-stop" id="btn-video">멈춤</div>
+          <div class="audio-play-stop" id="btn-audio">켜기</div>
           <div class="btn-video btn-video01" id="btn-vita">비타500</div>
           <div class="btn-video btn-video02" id="btn-corn">옥수수수염차</div>
           <div class="btn-video btn-video03" id="btn-samda">삼다수</div>
@@ -1172,7 +1172,7 @@
     //============ 함수 ============
     // 비디오를 뒤로 보내는 함수
     function videoBack(){
-      $('media-box').removeClass('active');
+      $('.media-box').removeClass('active');
     }
     // 비디오 앞으로 가져오기 함수
     function videoFront(el){
@@ -1184,25 +1184,71 @@
       $('video')[0].pause();
       $('video')[1].pause();
       $('video')[2].pause();
+      $('#btn-video').text('재생');
     }
    
     // 비디오 재생 함수
     function videoPlay(){
       $('.active video')[0].play();
+      $('#btn-video').text('멈춤');
     }
     
     // 오디오 재생 함수
     function audioPlay(){
-      $('.active video').prop('muted',false);
+      $('.active video').prop('muted',false);      
+      $('#btn-audio').text('멈춤');
     }
 
     // 오디오 멈춤 함수
     function audioStop(){
-      $('video').prop('muted',true);
+      $('video').prop('muted',true);      
+      $('#btn-audio').text('켜기');
     }
 
 
+    // 비디오 멈춤 재생 버튼 이벤트
+    $('#btn-video').click(function(){
+      if($(this).text()=='멈춤'){
+        videoStop()
+      }else{
+        videoPlay();
+      }
+    })
 
+    // 사운드 멈춤 재생 버튼 이벤트
+    $('#btn-audio').click(function(){
+      if($(this).text()=='켜기'){
+        audioPlay();
+      }else{
+        audioStop();
+      }
+    })
+
+    // 비타500 이벤트
+    $('#btn-vita').click(function(){
+      videoBack();
+      videoFront($('#vita'));
+      videoStop();
+      videoPlay();
+      audioStop();
+    })
+
+    // 수염차 이벤트
+    $('#btn-corn').click(function(){
+      videoBack();
+      videoFront($('#corn'));
+      videoStop();
+      videoPlay();
+      audioStop();
+    })
+    // 삼다수 이벤트
+    $('#btn-samda').click(function(){
+      videoBack();
+      videoFront($('#samda'));
+      videoStop();
+      videoPlay();
+      audioStop();      
+    })
 
 
     // 네비게이션 클로즈 이벤트
