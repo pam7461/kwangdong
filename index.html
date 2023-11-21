@@ -188,6 +188,7 @@
     }
     .sec-media .container{
       max-width:100%;
+      height:100vh;
       padding:0;
       position:relative;
     }
@@ -887,7 +888,7 @@
       <div class="container">
         <div class="video-box">
           <div class="media-box active" id="vita">
-            <video src="./media/med-vita.mp4" muted autoplay></video>          
+            <video src="./media/med-vita.mp4" muted autoplay loop></video>          
           </div>
           <div class="media-box" id="corn">
             <video src="./media/med-corn.mp4" muted></video>          
@@ -1205,6 +1206,11 @@
       $('#btn-audio').text('켜기');
     }
 
+    // 비디오 루프()
+    function videoLoop(){
+      $('video').prop('loop',false);
+      $('.active video').prop('loop',true);      
+    }
 
     // 비디오 멈춤 재생 버튼 이벤트
     $('#btn-video').click(function(){
@@ -1230,7 +1236,8 @@
       videoFront($('#vita'));
       videoStop();
       videoPlay();
-      audioStop();
+      audioStop(); 
+      videoLoop();     
     })
 
     // 수염차 이벤트
@@ -1240,6 +1247,7 @@
       videoStop();
       videoPlay();
       audioStop();
+      videoLoop();
     })
     // 삼다수 이벤트
     $('#btn-samda').click(function(){
@@ -1247,8 +1255,27 @@
       videoFront($('#samda'));
       videoStop();
       videoPlay();
-      audioStop();      
+      audioStop(); 
+      videoLoop();     
     })
+
+    // 비디오보기 이벤트
+    // $('.btn-video').click(function(){
+    //   let thisId = $(this).attr('id');
+    //   console.log(thisId);
+    //   videoBack();
+    //   if(thisId=='btn-vita'){
+    //     videoFront($('#vita'));
+    //   }else if(thisId=='btn-corn'){
+    //     videoFront($('#corn'));
+    //   }else if(thisId=='btn-samda'){
+    //     videoFront($('#samda'));
+    //   }
+    //   videoStop();
+    //   videoPlay();
+    //   audioStop();
+    //   videoLoop()      
+    // })
 
 
     // 네비게이션 클로즈 이벤트
