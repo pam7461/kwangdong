@@ -12,9 +12,12 @@ a{
   color:inherit;
   text-decoration:none;
 }
-img,video,picture{
+img,video,picture,svg{
   width:100%;
   vertical-align:top;
+}
+svg{
+  height:auto;
 }
 ul,ol,li{
   list-style:none;
