@@ -351,10 +351,7 @@
     }
     .sec-dev-con .art.active{
       transform:translateX(0);
-    }
-    .sec-dev-con .art:hover{
-      border:5px solid #e8340d;
-    }
+    }    
     .sec-dev-con .art01{
       background-image:url('/images/img-dev01.jpg');            
     }
@@ -993,22 +990,22 @@
     <section class="sec sec03 sec-dev-con">
       <div class="container">
         <h2 class="sec-tit ani-tit" id="dev-con-tit">연구개발 / 사회공헌</h2>        
-        <article class="art art01 dev-con-art01">
-          <h3 class="art-tit">연구개발비젼</h3>
+        <article class="art art01 dev-con-art01 div-con-art">
+          <h3 class="art-tit">연구개발비젼</h3>          
           <!-- <p class="art-para">약국에서 구입할 수 는 의약품입니다.</p> -->
           <!-- <div class="img-box art-img"><img src="./images/img-busi01.jpg" alt="일반의약품"></div> -->
         </article>        
-        <article class="art art02 dev-con-art02">
+        <article class="art art02 dev-con-art02 div-con-art">
           <h3 class="art-tit">연구성과</h3>
           <!-- <p class="art-para">처방전이 있어야 구입할 수 있는 의약품</p> -->
           <!-- <div class="img-box art-img"><img src="./images/img-busi02.jpg" alt="전문의약품"></div> -->
         </article>
-        <article class="art art03 dev-con-art03">
+        <article class="art art03 dev-con-art03 div-con-art">
           <h3 class="art-tit">매칭그랜트</h3>
           <!-- <p class="art-para">어디서나 구입이 가능한 제품입니다.</p> -->
           <!-- <div class="img-box art-img"><img src="./images/img-busi03.jpg" alt="의약외품"></div> -->
         </article>
-        <article class="art art04 dev-con-art04">
+        <article class="art art04 dev-con-art04 div-con-art">
           <h3 class="art-tit">가산문화재단</h3>
           <!-- <p class="art-para">건강을 지키는 지능성 식품입니다.</p> -->
           <!-- <div class="img-box art-img"><img src="./images/img-busi04.jpg" alt="건강기능식품"></div> -->
@@ -1229,7 +1226,22 @@
 
   <!-- 사용자정의 스크립트 -->
   <script>
-    
+    window.onscroll = function(){
+      const aniTit = document.querySelectorAll('.ani-tit'); 
+      const busiArt = document.querySelectorAll('.sec-busi .art');      
+      const devConArt = document.querySelectorAll('.sec-dev-con .art');      
+      const notEvent = document.querySelectorAll('.sec-notice-event .art');
+      const elHeader = document.getElementById('header');
+
+      fnAnimation(notEvent);
+      fnAnimation(devConArt);
+      fnAnimation(busiArt);
+      fnAnimation(aniTit);
+      fnHeader(elHeader);
+    }
+      
+
+
     // 비디오 멈춤 재생 버튼 이벤트
     $('#btn-video').click(function(){
       if($(this).text()=='멈춤'){
@@ -1289,29 +1301,38 @@
       $('.g-nav>li>.sub-nav').hide();
       $(this).children('.sub-nav').slideDown(300);
     })
+
+    fnBorder();
+
+    $('.div-con-art').mouseenter(function(){
+      $(this).children('span').eq(0).delay(0).animate({
+        width:'100%',
+      },300)
+      $(this).children('span').eq(1).delay(300).animate({
+        height:'100%',
+      },200)
+      $(this).children('span').eq(2).delay(500).animate({
+        width:'100%',
+      },300)
+      $(this).children('span').eq(3).delay(800).animate({
+        height:'100%',
+      },200)
+    })
+    $('.div-con-art').mouseleave(function(){
+      $(this).children('span').eq(0).stop().delay(0).animate({
+        width:'0',
+      },0)
+      $(this).children('span').eq(1).stop().delay(0).animate({
+        height:'0',
+      },0)
+      $(this).children('span').eq(2).stop().delay(0).animate({
+        width:'0',
+      },0)
+      $(this).children('span').eq(3).stop().delay(0).animate({
+        height:'0',
+      },0)
+    })
     
-    
-    window.onscroll = function(){
-      const aniTit = document.querySelectorAll('.ani-tit'); 
-      const busiArt = document.querySelectorAll('.sec-busi .art');      
-      const devConArt = document.querySelectorAll('.sec-dev-con .art');      
-      const notEvent = document.querySelectorAll('.sec-notice-event .art');
-      const elHeader = document.getElementById('header');
-
-      fnAnimation(notEvent);
-      fnAnimation(devConArt);
-      fnAnimation(busiArt);
-      fnAnimation(aniTit);
-      fnHeader(elHeader);
-    }
-      
-
-    
-
-
-
-
-
     // swiperjs
     const swiper = new Swiper('.swiper', {
       // Optional parameters
@@ -1344,8 +1365,6 @@
         prevEl: '.swiper-button-prev',
       },      
     });
-
-
 
   </script>
 </body>
