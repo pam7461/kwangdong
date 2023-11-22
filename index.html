@@ -50,10 +50,7 @@
     .sec .container .ani-tit{
       transform:translateY(20px);
       opacity:0;
-      transition-property:all;
-      transition-duration:0.15s;
-      transition-timing-function:linear;
-      transition-delay:0.05s;
+      transition:0.3s;      
     }
     .sec .container .sec-tit.active,
     .sec .container .ani-tit.active{
@@ -678,6 +675,15 @@
       .sec-busi .art{
         height:50vw;
       }
+      .sec-busi .art:nth-of-type(2){
+        transition-delay:0.3s;
+      }
+      .sec-busi .art:nth-of-type(3){
+        transition-delay:0.6s;
+      }
+      .sec-busi .art:nth-of-type(4){
+        transition-delay:0.9s;
+      }
       .sec-dev-con .container{
         grid-template-columns:repeat(8, 1fr);
       }  
@@ -702,6 +708,9 @@
       .sec-prod .sec-para{
         font-size:24px;
       }   
+      .sec-notice-event .art:nth-of-type(2){
+        transition-delay:0.3s;
+      }
       .sec-notice-event .art-tit{
         font-size:32px;
       }   
@@ -1268,25 +1277,6 @@
       audioStop(); 
       videoLoop();     
     })
-    
-    // 비디오보기 이벤트
-    // $('.btn-video').click(function(){
-    //   let thisId = $(this).attr('id');
-    //   console.log(thisId);
-    //   videoBack();
-    //   if(thisId=='btn-vita'){
-    //     videoFront($('#vita'));
-    //   }else if(thisId=='btn-corn'){
-    //     videoFront($('#corn'));
-    //   }else if(thisId=='btn-samda'){
-    //     videoFront($('#samda'));
-    //   }
-    //   videoStop();
-    //   videoPlay();
-    //   audioStop();
-    //   videoLoop()      
-    // })
-
 
     // 네비게이션 클로즈 이벤트
     $('#nav-close').click(function(e){
@@ -1300,84 +1290,19 @@
       $(this).children('.sub-nav').slideDown(300);
     })
     
-    // 윈도우 스크롤 이벤트
-    // $(window).scroll(function(){
-    //   let scrTop = $(this).scrollTop();
-    //   let winHeight = $(window).height();
-      
-    //   let offsetBusiTit = $('.sec-busi .sec-tit').offset().top;
-    //   let elHeight = $('.sec-busi .sec-tit').height();
-    //   let showTop = offsetBusiTit - winHeight + elHeight;      
-    //   if(scrTop >= showTop){
-    //     $('.sec-busi .sec-tit').addClass('active');
-    //   }else{
-    //     $('.sec-busi .sec-tit').removeClass('active');
-    //   }
-
-    //   let offsetDivConTit = $('.sec-dev-con .sec-tit').offset().top;
-    //   let elDivConHeight = $('.sec-dev-con .sec-tit').height();
-    //   let showTop02 = offsetDivConTit - winHeight + elDivConHeight;      
-    //   if(scrTop >= showTop02){
-    //     $('.sec-dev-con .sec-tit').addClass('active');
-    //   }else{
-    //     $('.sec-dev-con .sec-tit').removeClass('active');
-    //   }
-
-    //   let offsetProdTit = $('.sec-prod .sec-tit').offset().top;
-    //   let elProdHeight = $('.sec-prod .sec-tit').height();
-    //   let showTop03 = offsetProdTit - winHeight + elProdHeight;      
-    //   if(scrTop >= showTop03){
-    //     $('.sec-prod .sec-tit').addClass('active');
-    //   }else{
-    //     $('.sec-prod .sec-tit').removeClass('active');
-    //   }
-
-    //   if(scrTop>=100){
-    //     $('#header').addClass('active');
-
-    //   }else{
-    //     $('#header').removeClass('active');
-    //   }
-    // })
     
-    function fnAnimation(elArray, para01, para02){
-      // const aniTit = document.querySelectorAll('.ani-tit');      
-      for(let idx=0;idx<=elArray.length-1;idx++){
-        let elArrayHeight = elArray[idx].offsetHeight;
-        let absElArray = window.pageYOffset + elArray[idx].getBoundingClientRect().top;
-        let showTop = absElArray - para01 + elArrayHeight;
-        if(para02>=showTop){
-          elArray[idx].classList.add('active');
-        }else{
-          elArray[idx].classList.remove('active');
-        }        
-      }
-    }
-
-    function fnHeader(elHeader,scrollTop){
-      if(scrollTop>=100){
-        elHeader.classList.add('active');
-      }else{
-        elHeader.classList.remove('active');
-      }
-    }
     window.onscroll = function(){
-      let scrTop = document.querySelector('html').scrollTop;
-      let winHeight = window.innerHeight;      
-      
       const aniTit = document.querySelectorAll('.ani-tit'); 
       const busiArt = document.querySelectorAll('.sec-busi .art');      
       const devConArt = document.querySelectorAll('.sec-dev-con .art');      
       const notEvent = document.querySelectorAll('.sec-notice-event .art');
       const elHeader = document.getElementById('header');
-      
-      fnAnimation(notEvent,winHeight,scrTop);
-      fnAnimation(devConArt,winHeight,scrTop);
-      fnAnimation(busiArt,winHeight,scrTop);
-      fnAnimation(aniTit,winHeight,scrTop);
 
-            
-      fnHeader(elHeader,scrTop);
+      fnAnimation(notEvent);
+      fnAnimation(devConArt);
+      fnAnimation(busiArt);
+      fnAnimation(aniTit);
+      fnHeader(elHeader);
     }
       
 
