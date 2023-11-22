@@ -1325,6 +1325,7 @@
 
     
     window.onscroll = function(){
+      // 타이틀 에니메이션
       const aniTit = document.querySelectorAll('.ani-tit');
       let scrTop = document.querySelector('html').scrollTop;
       let winHeight = window.innerHeight;
@@ -1339,7 +1340,15 @@
         }        
       }
 
-      
+
+      // 헤더 에니메이션
+      let elHeader = document.getElementById('header');      
+      if(scrTop>=100){
+        elHeader.classList.add('active');
+      }else{
+        elHeader.classList.remove('active');
+      }
+
     }
       
 
