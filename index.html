@@ -495,6 +495,13 @@
       row-gap:60px;
       padding:50px 20px 20px;
       background:#f1f1f1;
+      transform:scale(0.1) rotate(360deg);
+      opacity:0;
+      transition:0.5s;      
+    }
+    .sec-notice-event .art.active{
+      transform:scale(1) rotate(0);
+      opacity:1;
     }
     .sec-notice-event .art-tit{
       grid-column:1/3;
@@ -1333,60 +1340,44 @@
     //   }
     // })
     
-
-    
-    window.onscroll = function(){
-      let scrTop = document.querySelector('html').scrollTop;
-      let winHeight = window.innerHeight;
-      
-      // 타이틀 에니메이션
-      const aniTit = document.querySelectorAll('.ani-tit');      
-      for(let idx=0;idx<=aniTit.length-1;idx++){
-        let aniTitHeight = aniTit[idx].offsetHeight;
-        let absAniTit = window.pageYOffset + aniTit[idx].getBoundingClientRect().top;
-        let showTop = absAniTit - winHeight + aniTitHeight;
-        if(scrTop>=showTop){
-          aniTit[idx].classList.add('active');
+    function fnAnimation(elArray, para01, para02){
+      // const aniTit = document.querySelectorAll('.ani-tit');      
+      for(let idx=0;idx<=elArray.length-1;idx++){
+        let elArrayHeight = elArray[idx].offsetHeight;
+        let absElArray = window.pageYOffset + elArray[idx].getBoundingClientRect().top;
+        let showTop = absElArray - para01 + elArrayHeight;
+        if(para02>=showTop){
+          elArray[idx].classList.add('active');
         }else{
-          aniTit[idx].classList.remove('active');
+          elArray[idx].classList.remove('active');
         }        
       }
+    }
 
-      // 비지니스 아티클 에니메이션
-      const busiArt = document.querySelectorAll('.sec-busi .art');      
-      for(let idx=0;idx<=busiArt.length-1;idx++){
-        let aniTitHeight = busiArt[idx].offsetHeight;
-        let absAniTit = window.pageYOffset + busiArt[idx].getBoundingClientRect().top;
-        let showTop = absAniTit - winHeight + aniTitHeight;
-        if(scrTop>=showTop){
-          busiArt[idx].classList.add('active');
-        }else{
-          busiArt[idx].classList.remove('active');
-        }        
-      }
-      
-      // 연구개발 사회공헌 아티클 에니메이션
-      const devConArt = document.querySelectorAll('.sec-dev-con .art');      
-      for(let idx=0;idx<=devConArt.length-1;idx++){
-        let aniTitHeight = devConArt[idx].offsetHeight;
-        let absAniTit = window.pageYOffset + devConArt[idx].getBoundingClientRect().top;
-        let showTop = absAniTit - winHeight + aniTitHeight;
-        if(scrTop>=showTop){
-          devConArt[idx].classList.add('active');
-        }else{
-          devConArt[idx].classList.remove('active');
-        }        
-      }
-
-
-      // 헤더 에니메이션
-      let elHeader = document.getElementById('header');      
-      if(scrTop>=100){
+    function fnHeader(elHeader,scrollTop){
+      if(scrollTop>=100){
         elHeader.classList.add('active');
       }else{
         elHeader.classList.remove('active');
       }
+    }
+    window.onscroll = function(){
+      let scrTop = document.querySelector('html').scrollTop;
+      let winHeight = window.innerHeight;      
+      
+      const aniTit = document.querySelectorAll('.ani-tit'); 
+      const busiArt = document.querySelectorAll('.sec-busi .art');      
+      const devConArt = document.querySelectorAll('.sec-dev-con .art');      
+      const notEvent = document.querySelectorAll('.sec-notice-event .art');
+      const elHeader = document.getElementById('header');
+      
+      fnAnimation(notEvent,winHeight,scrTop);
+      fnAnimation(devConArt,winHeight,scrTop);
+      fnAnimation(busiArt,winHeight,scrTop);
+      fnAnimation(aniTit,winHeight,scrTop);
 
+            
+      fnHeader(elHeader,scrTop);
     }
       
 
