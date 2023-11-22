@@ -1283,61 +1283,63 @@
     })
     
     // 윈도우 스크롤 이벤트
-    $(window).scroll(function(){
-      let scrTop = $(this).scrollTop();
-      let winHeight = $(window).height();
+    // $(window).scroll(function(){
+    //   let scrTop = $(this).scrollTop();
+    //   let winHeight = $(window).height();
       
-      let offsetBusiTit = $('.sec-busi .sec-tit').offset().top;
-      let elHeight = $('.sec-busi .sec-tit').height();
-      let showTop = offsetBusiTit - winHeight + elHeight;      
-      if(scrTop >= showTop){
-        $('.sec-busi .sec-tit').addClass('active');
-      }else{
-        $('.sec-busi .sec-tit').removeClass('active');
-      }
+    //   let offsetBusiTit = $('.sec-busi .sec-tit').offset().top;
+    //   let elHeight = $('.sec-busi .sec-tit').height();
+    //   let showTop = offsetBusiTit - winHeight + elHeight;      
+    //   if(scrTop >= showTop){
+    //     $('.sec-busi .sec-tit').addClass('active');
+    //   }else{
+    //     $('.sec-busi .sec-tit').removeClass('active');
+    //   }
 
-      let offsetDivConTit = $('.sec-dev-con .sec-tit').offset().top;
-      let elDivConHeight = $('.sec-dev-con .sec-tit').height();
-      let showTop02 = offsetDivConTit - winHeight + elDivConHeight;      
-      if(scrTop >= showTop02){
-        $('.sec-dev-con .sec-tit').addClass('active');
-      }else{
-        $('.sec-dev-con .sec-tit').removeClass('active');
-      }
+    //   let offsetDivConTit = $('.sec-dev-con .sec-tit').offset().top;
+    //   let elDivConHeight = $('.sec-dev-con .sec-tit').height();
+    //   let showTop02 = offsetDivConTit - winHeight + elDivConHeight;      
+    //   if(scrTop >= showTop02){
+    //     $('.sec-dev-con .sec-tit').addClass('active');
+    //   }else{
+    //     $('.sec-dev-con .sec-tit').removeClass('active');
+    //   }
 
-      let offsetProdTit = $('.sec-prod .sec-tit').offset().top;
-      let elProdHeight = $('.sec-prod .sec-tit').height();
-      let showTop03 = offsetProdTit - winHeight + elProdHeight;      
-      if(scrTop >= showTop03){
-        $('.sec-prod .sec-tit').addClass('active');
-      }else{
-        $('.sec-prod .sec-tit').removeClass('active');
-      }
+    //   let offsetProdTit = $('.sec-prod .sec-tit').offset().top;
+    //   let elProdHeight = $('.sec-prod .sec-tit').height();
+    //   let showTop03 = offsetProdTit - winHeight + elProdHeight;      
+    //   if(scrTop >= showTop03){
+    //     $('.sec-prod .sec-tit').addClass('active');
+    //   }else{
+    //     $('.sec-prod .sec-tit').removeClass('active');
+    //   }
 
-      if(scrTop>=100){
-        $('#header').addClass('active');
+    //   if(scrTop>=100){
+    //     $('#header').addClass('active');
 
-      }else{
-        $('#header').removeClass('active');
-      }
-    })
+    //   }else{
+    //     $('#header').removeClass('active');
+    //   }
+    // })
     
 
-    const aniTit = document.getElementsByClassName('ani-tit');
-    // 타이틀 높이들
-    let aniTitHeight = [];
-    // 타이틀 절대 위치
-    let absoluteSecTit = [];
-
-    document.onscroll = function(){
-      let scrTop = $(window).scrollTop();
+    
+    window.onscroll = function(){
+      const aniTit = document.querySelectorAll('.ani-tit');
+      let scrTop = document.querySelector('html').scrollTop;
       let winHeight = window.innerHeight;
       for(let idx=0;idx<=aniTit.length-1;idx++){
-        aniTitHeight.push(aniTit[idx].offsetHeight);
-        absoluteSecTit[idx] = window.pageYOffset + aniTit[idx].getBoundingClientRect().top;      
-        
+        let aniTitHeight = aniTit[idx].offsetHeight;
+        let absAniTit = window.pageYOffset + aniTit[idx].getBoundingClientRect().top;
+        let showTop = absAniTit - winHeight + aniTitHeight;
+        if(scrTop>=showTop){
+          aniTit[idx].classList.add('active');
+        }else{
+          aniTit[idx].classList.remove('active');
+        }        
       }
 
+      
     }
       
 
