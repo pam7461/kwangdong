@@ -46,6 +46,18 @@
     .sec02,.sec03,.sec04,.sec05{
       margin:100px 0;
     }
+    .sec .container .sec-tit{
+      transform:translateY(20px);
+      opacity:0;
+      transition-property:all;
+      transition-duration:0.15s;
+      transition-timing-function:linear;
+      transition-delay:0.05s;
+    }
+    .sec .container .sec-tit.active{
+      transform:translateY(0);
+      opacity:1;
+    }
     #wrap{
       overflow:hidden;
     }    
@@ -221,13 +233,10 @@
       cursor:pointer;
     }
     .sec-busi{
-      transform:translateX(-50%);
-      opacity:0.5;
-      transition:0.3s;
+      
     }
     .sec-busi.active{
-      transform:translateX(0);
-      opacity:1;
+      
     }
     .sec-busi .container{
       padding:0;
@@ -582,6 +591,16 @@
       color:#fff;
     }
 
+    @keyframes sec-tit {
+      0%{
+        transform:translateY(20px);
+        opacity:0;
+      }
+      100%{
+        transform:translateY(0);
+        opacity:1;
+      }
+    }
     
     
 
@@ -1179,46 +1198,11 @@
   <script src="./js/swiper-bundle.min.js"></script>
   <!-- modal -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.2/jquery.modal.min.js"></script>
-
+  <script src="./js/function.js"></script>
 
   <!-- 사용자정의 스크립트 -->
   <script>
-    //============ 함수 ============
-    // 비디오를 뒤로 보내는 함수
-    function videoBack(){
-      $('.media-box').removeClass('active');
-    }
-    // 비디오 앞으로 가져오기 함수
-    function videoFront(el){
-      el.addClass('active');
-    }
-    // 비디오 멈춤 함수
-    function videoStop(){      
-      $('video')[0].pause();
-      $('video')[1].pause();
-      $('video')[2].pause();
-      $('#btn-video').text('재생');
-    }
-    // 비디오 재생 함수
-    function videoPlay(){
-      $('.active video')[0].play();
-      $('#btn-video').text('멈춤');
-    }
-    // 오디오 재생 함수
-    function audioPlay(){
-      $('.active video').prop('muted',false);      
-      $('#btn-audio').text('멈춤');
-    }
-    // 오디오 멈춤 함수
-    function audioStop(){
-      $('video').prop('muted',true);      
-      $('#btn-audio').text('켜기');
-    }
-    // 비디오 루프()
-    function videoLoop(){
-      $('video').prop('loop',false);
-      $('.active video').prop('loop',true);      
-    }
+    
     // 비디오 멈춤 재생 버튼 이벤트
     $('#btn-video').click(function(){
       if($(this).text()=='멈춤'){
@@ -1227,6 +1211,7 @@
         videoPlay();
       }
     })
+    
     // 사운드 멈춤 재생 버튼 이벤트
     $('#btn-audio').click(function(){
       if($(this).text()=='켜기'){
@@ -1235,6 +1220,7 @@
         audioStop();
       }
     })
+    
     // 비타500 이벤트
     $('#btn-vita').click(function(){
       videoBack();
@@ -1244,6 +1230,7 @@
       audioStop(); 
       videoLoop();     
     })
+    
     // 수염차 이벤트
     $('#btn-corn').click(function(){
       videoBack();
@@ -1253,6 +1240,7 @@
       audioStop();
       videoLoop();
     })
+    
     // 삼다수 이벤트
     $('#btn-samda').click(function(){
       videoBack();
@@ -1262,6 +1250,7 @@
       audioStop(); 
       videoLoop();     
     })
+    
     // 비디오보기 이벤트
     // $('.btn-video').click(function(){
     //   let thisId = $(this).attr('id');
@@ -1286,6 +1275,7 @@
       $('.sub-nav').hide();
       e.preventDefault();
     })
+
     // 네비게이션 항목 클릭 이벤트
     $('.g-nav>li').click(function(){
       $('.g-nav>li>.sub-nav').hide();
@@ -1294,8 +1284,19 @@
     
     // 윈도우 스크롤 이벤트
     $(window).scroll(function(){
-      let scrTop = $(this).scrollTop(); 
+      let scrTop = $(this).scrollTop();
+      let winHeight = $(window).height();
       
+      let offsetBusiTit = $('.sec-busi .sec-tit').offset().top;
+      let elHeight = $('.sec-busi .sec-tit').height();
+      let showTop = offsetBusiTit - winHeight + elHeight;
+      
+      if(scrTop >= showTop){
+        $('.sec-busi .sec-tit').addClass('active');
+      }else{
+        $('.sec-busi .sec-tit').removeClass('active');
+      }
+
       if(scrTop>=100){
         $('#header').addClass('active');
 
