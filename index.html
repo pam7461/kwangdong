@@ -343,7 +343,17 @@
       position:relative;
       background-repeat:no-repeat;
       background-position:center;
-      background-size:cover;      
+      background-size:cover; 
+      transition:1s;           
+    }
+    .sec-dev-con .art:nth-of-type(2n){
+      transform:translateX(1000px);
+    }
+    .sec-dev-con .art:nth-of-type(2n+1){
+      transform:translateX(-1000px);
+    }
+    .sec-dev-con .art.active{
+      transform:translateX(0);
     }
     .sec-dev-con .art:hover{
       border:5px solid #e8340d;
@@ -1326,10 +1336,11 @@
 
     
     window.onscroll = function(){
-      // 타이틀 에니메이션
-      const aniTit = document.querySelectorAll('.ani-tit');
       let scrTop = document.querySelector('html').scrollTop;
       let winHeight = window.innerHeight;
+      
+      // 타이틀 에니메이션
+      const aniTit = document.querySelectorAll('.ani-tit');      
       for(let idx=0;idx<=aniTit.length-1;idx++){
         let aniTitHeight = aniTit[idx].offsetHeight;
         let absAniTit = window.pageYOffset + aniTit[idx].getBoundingClientRect().top;
@@ -1338,6 +1349,32 @@
           aniTit[idx].classList.add('active');
         }else{
           aniTit[idx].classList.remove('active');
+        }        
+      }
+
+      // 비지니스 아티클 에니메이션
+      const busiArt = document.querySelectorAll('.sec-busi .art');      
+      for(let idx=0;idx<=busiArt.length-1;idx++){
+        let aniTitHeight = busiArt[idx].offsetHeight;
+        let absAniTit = window.pageYOffset + busiArt[idx].getBoundingClientRect().top;
+        let showTop = absAniTit - winHeight + aniTitHeight;
+        if(scrTop>=showTop){
+          busiArt[idx].classList.add('active');
+        }else{
+          busiArt[idx].classList.remove('active');
+        }        
+      }
+      
+      // 연구개발 사회공헌 아티클 에니메이션
+      const devConArt = document.querySelectorAll('.sec-dev-con .art');      
+      for(let idx=0;idx<=devConArt.length-1;idx++){
+        let aniTitHeight = devConArt[idx].offsetHeight;
+        let absAniTit = window.pageYOffset + devConArt[idx].getBoundingClientRect().top;
+        let showTop = absAniTit - winHeight + aniTitHeight;
+        if(scrTop>=showTop){
+          devConArt[idx].classList.add('active');
+        }else{
+          devConArt[idx].classList.remove('active');
         }        
       }
 
