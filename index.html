@@ -233,13 +233,7 @@
     .sec-media .video-control>div{
       margin-left:20px;
       cursor:pointer;
-    }
-    .sec-busi{
-      
-    }
-    .sec-busi.active{
-      
-    }
+    }    
     .sec-busi .container{
       padding:0;
       display:grid;
@@ -265,7 +259,14 @@
       position:relative;
       overflow:hidden;      
       background-repeat:no-repeat;
+      transform:rotateY(180deg); 
+      backface-visibility:hidden;     
+      opacity:0;
       transition:0.3s;
+    }
+    .sec-busi .art.active{
+      transform:rotateY(0);
+      opacity:1;
     }
     .sec-busi .art:hover{
       z-index:10;
