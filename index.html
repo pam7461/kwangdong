@@ -5,194 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="광동제약은 새로운 가치를 창출하여 고객의 건강한 삶에 기여한다">
   <meta name="keywords" content="제약사, 비타500, 우황청심원, 삼다수">
-  <meta name="actor" content="jo hwan jun">
-  <!-- 오픈그래픽 -->
+  <meta name="actor" content="jo hwan jun">  
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pam7461.github.io/responsive-kwangdong">
   <meta property="og:image" content="./images/og.jpg">
   <meta property="og:title" content="광동제약">
-  <meta property="og:description" content="광동제약은 새로운 가치를 창출하여 고객의 건강한 삶에 기여한다">
-  <!-- 트위터카드 -->
+  <meta property="og:description" content="광동제약은 새로운 가치를 창출하여 고객의 건강한 삶에 기여한다">  
   <meta name="twitter:card" content="summary">
   <meta name="twitter:url" content="https://pam7461.github.io/responsive-kwangdong">
   <meta name="twitter:image" content="./images/og.jpg">
   <meta name="twitter:title" content="광동제약">
-  <meta name="twitter:description" content="광동제약은 새로운 가치를 창출하여 고객의 건강한 삶에 기여한다">
-  <!-- favicon -->
+  <meta name="twitter:description" content="광동제약은 새로운 가치를 창출하여 고객의 건강한 삶에 기여한다">  
   <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
-  <!-- CSS -->
   <link rel="stylesheet" href="./css/reset.css"> 
-  <!-- swiperjs  -->
   <link rel="stylesheet" href="./css/swiper-bundle.min.css">
-  <!-- modal -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.2/jquery.modal.min.css" />
-  <!-- font face -->
   <link rel="stylesheet" href="./css/fonts.css">
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/aside.css">
+  <link rel="stylesheet" href="./css/footer.css">
   <title>::: 광동제약 :::</title>
-  <!-- 사용자정의 스타일 -->
-  <style> 
-    /* 기본스타일    */
-    :root{
-      font-family:'roboto','noto sans kr', sans-serif;
-      font-weight:400;
-      font-size:16px;
-      color:#000;
-    }
-    .container{
-      max-width:1280px;
-      margin:0 auto;
-      padding:0 20px;
-    }
-    .sec02,.sec03,.sec04,.sec05{
-      margin:100px 0;
-    }
-    .sec .container .sec-tit,
-    .sec .container .ani-tit{
-      transform:translateY(20px);
-      opacity:0;
-      transition:0.3s;      
-    }
-    .sec .container .sec-tit.active,
-    .sec .container .ani-tit.active{
-      transform:translateY(0);
-      opacity:1;
-    }
-    #wrap{
-      overflow:hidden;
-    }    
-    .header{
-      padding:20px 0;
-      position:fixed;
-      top:0;
-      right:0;
-      left:0;
-      z-index:1000; 
-      transition:0.3s;     
-    }
-    .header.active{
-      background:#000;
-    }
-    .header .container{
-      display:grid;
-      grid-template-columns:72px 24px 24px;
-      justify-content:space-between;
-      align-items:start;
-    }
-    .logo a,.nav-logo a,.footer-logo a{
-      display:grid;
-      grid-template-columns:22px 50px;
-      grid-template-rows:11px;
-      justify-content:space-between;
-      align-content:center;
-      font-weight:700;
-      color:#fff;
-      text-align:right;
-    }    
-    .logo span:first-of-type,
-    .nav-logo span:first-of-type{      
-      font-size:8.89px;
-    }
-    .logo span:last-of-type,
-    .nav-logo span:last-of-type{      
-      font-size:6.42px;      
-      grid-area:2/2/3/3;
-    }
-    .blocker{
-      z-index:2000;
-      padding:0;
-    }
-    .main-nav{     
-      width:100%;
-      max-width:100%;
-      height:100%;
-      border-radius:0;
-      padding:20px 0;
-      background:#e8340d;
-      font-weight:500;
-      font-size:24px;
-      color:#fff;
-    }
-    .main-nav>.close-modal{
-      display:none !important;
-    }
-    .main-nav .container{
-      position:relative;
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      column-gap:20px;
-      row-gap:100px;
-    }
-    .nav-logo{
-      width:72px;
-    }
-    .btn-nav-close{
-      grid-column:4/5;
-    }
-    .btn-close{
-      width:18px;
-      height:18px;
-      text-indent:-99999px;
-      cursor:pointer; 
-      float:right;     
-      position:relative;
-    }
-    .btn-close::before,.btn-close::after{
-      content:'';
-      display:block;
-      width:22px;
-      height:3px;
-      background:#fff;
-      position:absolute;
-      left:50%;
-      top:50%;
-      transform:translate(-50%,-50%) rotate(45deg);
-    }
-    .btn-close::after{
-      transform:translate(-50%,-50%) rotate(-45deg);
-    }
-    .g-nav{
-      grid-column:2/4;
-      text-align:center;
-      display:flex;
-      flex-flow:row wrap;
-    }
-    .g-nav>li{
-      width:100%;
-      margin-bottom:36px;
-      cursor:pointer;
-    }
-    .g-nav>li:hover>span{
-      color:#000;
-    }    
-    .g-nav>li:nth-child(6){
-      margin-bottom:0;
-    }
-    .sub-nav{
-      display:none;
-      font-size:0.75em;
-      text-align:left;
-    }
-    .sub-nav li:hover{
-      color:#000;
-    }
-    .g-nav .q-nav{
-      position:absolute;
-      top:600px;
-      left:50%;
-      transform:translateX(-50%);
-      width:295px;
-      height:63px;
-      background:#fff;
-      color:#e8340d;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-    } 
-    .g-nav .q-nav:hover{
-      border:2px solid #fff;
-      background:#e8340d;
-      color:#fff;
-    }
+  <style>   
+    /* @import url("./css/reset.css"); */
+    /* @import url("./css/swiper-bundle.min.css"); */
+    /* @import url("https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.2/jquery.modal.min.css"); */
+    /* @import url("./css/fonts.css"); */
+    /* @import url("./css/header.css"); */
+    /* @import url("./css/aside.css"); */
+    /* @import url("./css/footer.css"); */
     .sec-media{
       position:relative;
       z-index:10;
@@ -371,48 +211,7 @@
       font-weight:700;
       font-size:24px;
       color:#fff;
-    }
-    .aside{     
-      display:none !important; 
-      position:fixed;      
-      right:0;
-      bottom:0;
-      left:0;
-      z-index:100;
-      padding:20px 0;
-      background:#fff;
-      color:#000;
-    }
-    .aside .container{
-      display:grid;
-      grid-template-columns:repeat(3, auto);
-      justify-content:space-around;
-      row-gap:40px;
-    }
-    .aside .sec-tit{
-      display:none;
-    }
-    .aside .art{
-      width:80px;
-      position:relative;
-    }
-    .aside .art-tit{
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:0;
-      font-size:12px;
-      text-align:center;
-    }
-    .aside .art-img{
-      width:32px;
-      margin:0 auto 26px;
-    }
-    .aside svg{
-      width:32px;
-      height:32px;
-      fill:#000;
-    }        
+    }           
     .sec-prod .sec-tit{
       margin-bottom:10px;
       font-weight:700;
@@ -541,124 +340,8 @@
     .sec-notice-event .art02 .list-tit{
       display:none;
     }
-    .footer{
-      margin-bottom:98px;
-      background:#000;
-      color:#fff;
-    }
-    .footer .container{
-      max-width:1720px;
-      position:relative;
-    }
-    .footer-item{
-      padding:50px 0;
-    }
-    .footer-top .footer-logo,.footer-top ul{
-      display:inline-block;
-    }
-    .footer-top,.footer-middle{
-      border-bottom:2px solid #fff;
-    }
-    .footer-top .footer-logo{
-      width:150px;
-      float:left;
-    }
-    .footer-logo a{
-      grid-template-columns:44px 100px;
-      row-gap:10px;
-    }
-    .footer-logo span:first-of-type{
-      font-size:18px;
-    }
-    .footer-logo span:last-of-type{
-      font-size:14px;
-      grid-column:2/-1;
-    }
-    .footer-top ul{
-      float:right;
-    }
-    .footer-top li{
-      display:none;
-      font-weight:700;
-    }
-    .footer-top li:first-child{
-      display:inline-block;
-    }
-    .footer-middle p{
-      margin-bottom:12px;
-      font-size:12px;
-    }
-    .footer-middle p:last-child{
-      margin-bottom:0;
-    }
-    .footer-bottom form{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:20px;
-    }
-    .footer-bottom select{
-      border:1px solid #fff;
-      padding:6px;
-      background:#000;
-      color:#fff;
-    }
-
-    @keyframes sec-tit {
-      0%{
-        transform:translateY(20px);
-        opacity:0;
-      }
-      100%{
-        transform:translateY(0);
-        opacity:1;
-      }
-    }
-    
-    
-
-    /* -------------   768px 이상   ------------- */
     @media (min-width:768px){
-      .header .container{
-        grid-template-columns:144px 48px 48px;
-      }
-      .logo a,.nav-logo a{
-        grid-template-columns:44px 100px;
-        grid-template-rows:22px;
-      }
-      .logo span:first-of-type,.nav-logo span:first-of-type{      
-        font-size:calc(8.89px * 2);
-      }
-      .logo span:last-of-type,.nav-logo span:last-of-type{      
-        font-size:calc(6.42px * 2); 
-      }
-      .main-nav .container{
-        grid-template-columns:repeat(3,1fr);
-        column-gap:0;
-      }
-      .btn-nav-close{
-        grid-column:3/4;
-      }      
-      .btn-close{
-        width:36px;
-        height:36px;
-      }
-      .btn-close::before,.btn-close::after{
-        width:44px;
-        height:6px;
-      }
-      .g-nav{
-        grid-column:1/4;
-        text-align:center;
-      }
-      .g-nav>li{
-        width:33.3333%;
-      }
-      .g-nav .q-nav{
-        left:auto;
-        transform:translateX(0);
-        right:20px;
-        top:300px;
-      }
+      
       .sec-busi .container{
         grid-template-areas:
         'busi-tit busi-tit'
@@ -695,9 +378,7 @@
       .sec-dev-con .art04{
         grid-column-start:5;
       }
-      .aside{
-        display:none;
-      }
+      
       .sec-prod .sec-tit{
         margin-bottom:20px;        
         font-size:48px;
@@ -717,34 +398,10 @@
       .sec-notice-event .list-para{
         font-size:16px;
       }
-      .footer{
-        margin:0;
-      }
-      .footer-bottom{
-        position:absolute;
-        right:20px;
-        top:0;
-      }
-      .footer-bottom form{
-        grid-template-columns:1fr;
-      }
+      
     }
-
-
-
-
-
-    /* -------------   1280px 이상   ------------- */
     @media (min-width:1280px){
-      .g-nav{
-        text-align:left;
-      }
-      .g-nav>li{
-        width:25%;
-      }
-      .g-nav .q-nav{
-        text-align:center;
-      }
+      
       .sec-dev-con .container{
         padding:0 20px;
       }
@@ -758,21 +415,7 @@
       .sec-busi .art{
         height:310px;
       }
-      .aside{
-        display:block;
-        top:50%;
-        bottom:auto;
-        left:auto;
-        transform:translateY(-50%);
-        background:#000;
-        color:#fff;
-      }
-      .aside .container{
-        grid-template-columns:auto;
-      }
-      .aside svg{
-        fill:#fff;
-      }
+      
       .swiper-button-prev,
       .swiper-button-next{
         display:block;
@@ -780,9 +423,7 @@
       .sec-notice-event .container{
         grid-template-columns:1fr 1fr;
       }
-      .footer .container{
-        padding:0;
-      }
+      
     }
   </style>
 </head>
@@ -1213,14 +854,9 @@
       </div>      
     </footer>
   </section>
-
-
-
-  <!-- 라이브러리 -->
-  <script src="./js/jquery.js"></script>
-  <!-- swiperjs -->
-  <script src="./js/swiper-bundle.min.js"></script>
-  <!-- modal -->
+  
+  <script src="./js/jquery.js"></script>  
+  <script src="./js/swiper-bundle.min.js"></script>  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.2/jquery.modal.min.js"></script>
   <script src="./js/function.js"></script>
 
@@ -1241,14 +877,11 @@
     }
       
 
+    
 
     // 비디오 멈춤 재생 버튼 이벤트
     $('#btn-video').click(function(){
-      if($(this).text()=='멈춤'){
-        videoStop()
-      }else{
-        videoPlay();
-      }
+      fnVideoPS(this);
     })
     
     // 사운드 멈춤 재생 버튼 이벤트

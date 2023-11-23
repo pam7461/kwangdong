@@ -100,6 +100,13 @@
     }
   }
    
+  function fnVideoPS(el){
+    if($(el).text()=='멈춤'){
+      videoStop();
+    }else{
+      videoPlay();
+    }
+  }
   
   
     
