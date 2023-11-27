@@ -11,3 +11,5 @@ lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lo
 ***
 
 [구글링크](https://www.google.com)
+
+![대체택스트](https://ssl.pstatic.net/melona/libs/1474/1474042/777b18364b8cf2f9908e_20231124164004949.png)
